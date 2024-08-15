@@ -2,17 +2,15 @@ import { createBrowserRouter } from "react-router-dom"
 import { SearchPage } from "../pages/searchPage"
 import { SteelingPage } from "../pages/steelingPage"
 import { LeaderboardSteeling } from "../pages/leaderboardSteeling"
-import { Header } from "../components/header"
+import { Root } from "../components/root"
+import { ErrorPage } from "../pages/errorPage"
 
 export const routes = createBrowserRouter([
     {
         path: "/",
-        element: <Header />,
+        element: <Root />,
+        errorElement: <ErrorPage />,
         children: [
-            {
-                path: "/",
-                element: <SearchPage />
-            },
             {
                 path: "search",
                 element: <SearchPage />
