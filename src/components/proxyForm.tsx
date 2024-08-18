@@ -1,4 +1,4 @@
-import { Button, FormControl, TextField } from "@mui/material"
+import { Button, Checkbox, FormControl, FormControlLabel, TextField } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2"
 
 const styles = {
@@ -25,6 +25,7 @@ export const ProxyForm = () => {
         <>
             <FormControl style={styles.form} fullWidth>
                 <Grid2 xs={12}>
+                <FormControlLabel control={<Checkbox defaultChecked />} label="Використовувать проксі" />
                     <TextField
                         id="filled-multiline-static"
                         label="Proxy list(host:port:login:password)"
