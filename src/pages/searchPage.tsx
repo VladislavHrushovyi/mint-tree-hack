@@ -1,6 +1,7 @@
 import Grid2 from "@mui/material/Unstable_Grid2"
 import { RangeForm } from "../components/rangeForm"
 import { ProxyForm } from "../components/proxyForm"
+import { OutputArea } from "../components/outputArea"
 
 
 export const SearchPage = () => {
@@ -14,7 +15,7 @@ export const SearchPage = () => {
                     <ProxyForm />
                 </Grid2>
                 <Grid2 md={6}>
-                    Аутпут
+                    <OutputArea />
                 </Grid2>
                 <Grid2 md={6}>
                     Резалт
