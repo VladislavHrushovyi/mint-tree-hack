@@ -1,5 +1,6 @@
 import { Button, Stack } from "@mui/material"
 import { Link } from "react-router-dom"
+import { AuthTokenForm } from "./authTokenForm"
 
 export const Header = () => {
     return (
@@ -20,6 +21,7 @@ export const Header = () => {
                         Крадіжка у лідербордів
                     </Button>
                 </Link>
+                <AuthTokenForm />
             </Stack>
         </>
     )
