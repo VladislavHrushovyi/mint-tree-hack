@@ -1,6 +1,8 @@
 import { Button, FormControl, TextField } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2"
-import React from "react"
+import React, { useEffect } from "react"
+import { useInput } from "../hooks/useInput"
+import { useAuthToken } from "../utils/authTokexManager"
 
 const styles = {
     button : {
@@ -12,15 +14,30 @@ const styles = {
 
 export const AuthTokenForm = () => {
 
+    const authTokenInput = useInput("", "authToken")
+    const authTokenManager = useAuthToken()
+    useEffect(() => {
+        const authToken = localStorage.getItem("authToken")
+        if(authToken){
+            authTokenInput.changeValue(authTokenManager.getAuthToken())
+        }
+    }, [])
+
+    const handleSubmit = (event: React.FormEvent) => {
+        event.preventDefault()
+        console.log(authTokenInput.value)
+        authTokenManager.changeAuthToken(authTokenInput.value)
+    }
+    
     return (
         <>
-            <FormControl>
+            <FormControl onSubmit={handleSubmit}>
                 <Grid2 container spacing={2} justifyItems={"baseline"} justifyContent={"center"} direction={"row"}>
                     <Grid2>
-                        <TextField label="Введи авторизатіон токен" variant="outlined" fullWidth />
+                        <TextField {...authTokenInput} label="Введи авторизатіон токен" variant="outlined" fullWidth />
                     </Grid2>
                     <Grid2>
-                        <Button style={styles.button} variant="contained">
+                        <Button style={styles.button} type="submit" variant="contained" onClick={handleSubmit}>
                             Зберегти
                         </Button>
                     </Grid2>
