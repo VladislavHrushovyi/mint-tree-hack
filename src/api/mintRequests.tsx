@@ -1,15 +1,29 @@
-export const getUserInfo = async () => {
+import { mintAxois } from "./mintClient"
+
+export const mintClient = () => {
+
+    const axios = mintAxois;
+
+    const getUserInfo = async () => {
     
-}
-
-export const getEnergyList = async () => {
-
-}
-
-export const claimMe = async () => {
-
-}
-
-export const getDetailInformation = async () => {
+    }
     
+    const getEnergyList = async () => {
+    
+    }
+    
+    const claimMe = async () => {
+    
+    }
+    
+    const getDetailInformation = async () => {
+        
+    }
+
+    return {
+        getUserInfo,
+        getEnergyList,
+        claimMe,
+        getDetailInformation
+    }
 }
