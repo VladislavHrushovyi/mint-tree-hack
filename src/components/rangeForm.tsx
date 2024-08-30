@@ -15,22 +15,24 @@ export const RangeForm = () => {
     return (
         <>
             <FormControl style={styles.form}>
-                <Grid2 spacing={2} container>
-                    <Grid2 xs={6}>
-                        <TextField {...rangeFormHook.fromInput} label="Старт" variant="outlined" fullWidth/>
+                <form onSubmit={rangeFormHook.handleSubmit}>
+                    <Grid2 spacing={2} container>
+                        <Grid2 xs={6}>
+                            <TextField {...rangeFormHook.fromInput} label="Старт" variant="outlined" fullWidth />
+                        </Grid2>
+                        <Grid2 md={6}>
+                            <TextField {...rangeFormHook.toInput} label="Фініш" variant="outlined" fullWidth />
+                        </Grid2>
+                        <Grid2 md={12}>
+                            <TextField {...rangeFormHook.pointInput} label="Мін. кількість" variant="outlined" fullWidth />
+                        </Grid2>
+                        <Grid2 md={12}>
+                            <Button type="submit" variant="contained" fullWidth>
+                                ОК
+                            </Button>
+                        </Grid2>
                     </Grid2>
-                    <Grid2 md={6}>
-                        <TextField {...rangeFormHook.toInput} label="Фініш" variant="outlined" fullWidth/>
-                    </Grid2>
-                    <Grid2 md={12}>
-                        <TextField {...rangeFormHook.pointInput} label="Мін. кількість" variant="outlined" fullWidth/>
-                    </Grid2>
-                    <Grid2 md={12}>
-                        <Button type="submit" variant="contained" fullWidth>
-                            ОК    
-                        </Button>
-                    </Grid2>
-                </Grid2>
+                </form>
             </FormControl>
         </>
     )
