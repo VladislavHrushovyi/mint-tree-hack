@@ -1,5 +1,6 @@
 import { Button, Checkbox, FormControl, FormControlLabel, TextField } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2"
+import { useProxyForm } from "../hooks/useProxyForm"
 
 const styles = {
     form: {
@@ -8,8 +9,8 @@ const styles = {
     },
     proxyInput: {
     },
-    amountInfoBlock:{
-        margin:0,
+    amountInfoBlock: {
+        margin: 0,
     },
     proxyAmountInfo: {
         display: "flex",
@@ -21,27 +22,39 @@ const styles = {
 }
 
 export const ProxyForm = () => {
+
+    const proxyFormHook = useProxyForm()
+
     return (
         <>
             <FormControl style={styles.form} fullWidth>
-                <Grid2 xs={12}>
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Використовувать проксі" />
-                    <TextField
-                        id="filled-multiline-static"
-                        label="Proxy list(host:port:login:password)"
-                        multiline
-                        rows={4}
-                        defaultValue=""
-                        variant="filled"
-                        fullWidth
-                    />
-                    <h3 style={styles.proxyAmountInfo}>100 штук</h3>
-                </Grid2>
-                <Grid2>
-                    <Button variant="contained" fullWidth type="submit">
-                        Зберегти
-                    </Button>
-                </Grid2>
+                <form onSubmit={proxyFormHook.handleSubmit}>
+                    <Grid2 xs={12}>
+                        <FormControlLabel 
+                            control={<Checkbox defaultChecked />} 
+                            checked={proxyFormHook.isUseForm} 
+                            onChange={proxyFormHook.activateForm} 
+                            label="Використовувать проксі" 
+                            />
+                        <TextField
+                            id="filled-multiline-static"
+                            label="Proxy list(host:port:login:password)"
+                            {...proxyFormHook.proxyInput}
+                            multiline
+                            disabled={!proxyFormHook.isUseForm}
+                            rows={4}
+                            defaultValue=""
+                            variant="filled"
+                            fullWidth
+                        />
+                        <h3 style={styles.proxyAmountInfo}>{proxyFormHook.amountProxy}</h3>
+                    </Grid2>
+                    <Grid2>
+                        <Button variant="contained" disabled={!proxyFormHook.isUseForm} fullWidth type="submit">
+                            Зберегти
+                        </Button>
+                    </Grid2>
+                </form>
             </FormControl>
         </>
     )
