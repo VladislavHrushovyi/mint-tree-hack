@@ -16,8 +16,8 @@ export const mintClient = () => {
         return response
     }
     
-    const claimMe = async (idUser: string) => {
-        const response = await axios.get(`/api/tree/steal/claim?id=${idUser}`)
+    const getProof = async (idUser: string) => {
+        const response = await axios.get(`/api/tree/get-forest-proof?type=Steal&id=${idUser}`)
 
         return response
     }
@@ -37,7 +37,7 @@ export const mintClient = () => {
     return {
         getUserInfo,
         getEnergyList,
-        claimMe,
+        getProof,
         getDetailInformation,
         getTreesFromLeaderboard
     }
