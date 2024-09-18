@@ -17,7 +17,7 @@ export const RangeForm = () => {
             <FormControl style={styles.form}>
                 <form onSubmit={rangeFormHook.handleSubmit}>
                     <Grid2 spacing={2} container>
-                        <Grid2 xs={6}>
+                        <Grid2 md={6}>
                             <TextField {...rangeFormHook.fromInput} label="Старт" variant="outlined" fullWidth />
                         </Grid2>
                         <Grid2 md={6}>

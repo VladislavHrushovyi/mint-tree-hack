@@ -9,16 +9,16 @@ export const SearchPage = () => {
     return (
         <>
             <Grid2 container spacing={2}>
-                <Grid2 md={6}>
+                <Grid2 md={6} sm={12}>
                     <RangeForm />
                 </Grid2>
-                <Grid2 md={6}>
+                <Grid2 md={6} sm={12}>
                     <ProxyForm />
                 </Grid2>
-                <Grid2 md={6}>
+                <Grid2 md={6} sm={12}>
                     <OutputArea />
                 </Grid2>
-                <Grid2 md={6}>
+                <Grid2 md={6} sm={12}>
                     <ResultList />
                 </Grid2>
             </Grid2>
