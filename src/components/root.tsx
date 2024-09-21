@@ -2,12 +2,12 @@ import Grid2 from "@mui/material/Unstable_Grid2"
 import { Outlet } from "react-router-dom"
 import { Header } from "./header"
 
-const styles = {
-    body: {
-        color: "rgba(0,0,0, 0.7)",
-        paddind: "2rem 1.5rem 2rem 1.5rem"
-    }
-}
+// const styles = {
+//     body: {
+//         color: "rgba(0,0,0, 0.7)",
+//         paddind: "2rem 1.5rem 2rem 1.5rem"
+//     }
+// }
 
 export const Root = () => {
 
@@ -17,7 +17,7 @@ export const Root = () => {
                 <Grid2 xs={12}>
                     <Header />
                 </Grid2>
-                <Grid2>
+                <Grid2 md={12} justifyItems={"center"}>
                     <div id='detail'>
                         <Outlet />
                     </div>

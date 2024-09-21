@@ -5,7 +5,7 @@ import { OutputArea } from "../components/outputArea"
 export const SteelingPage = () => {
     return (
         <>
-            <Grid2 container spacing={2}>
+            <Grid2 container spacing={2} justifyContent={"center"} width={"100%"}>
                 <Grid2 md={6}>
                     Тіпа форма для айді дерев
                     <p>тіпа кнопка</p>
@@ -13,7 +13,7 @@ export const SteelingPage = () => {
                 <Grid2 md={6}>
                     <ProxyForm />
                 </Grid2>
-                <Grid2 md={12}>
+                <Grid2 md={12} justifyItems={"center"}>
                     <OutputArea />
                 </Grid2>
             </Grid2>
